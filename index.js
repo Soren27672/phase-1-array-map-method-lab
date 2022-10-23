@@ -12,5 +12,10 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(tutorial => {
+    let arrayedTitle = Array.from(tutorial);
+    return (arrayedTitle.map((letter,letterNumber,string) => {
+      if (letterNumber === 0 || string[letterNumber-1] === ' ') return letter.toUpperCase(); else return letter;
+    })).reduce((ac,cv) => ac += cv);
+  });
 }
